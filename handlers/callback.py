@@ -27,6 +27,10 @@ async def bot_function_phone(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=state_m.Contact_information.contact_email)
 async def bot_function_contact_email(message: types.Message, state: FSMContext):
+    if message.text == keyboards.Btn_text_menu.MENU:
+        await message.answer(keyboards.Btn_text_menu.MENU.value,
+                             reply_markup=keyboards.Btn_main_menu.list_btn)
+        await state.finish()
     result = None
     if len(re.findall(r'[A-Za-z\d._-]+@[A-Za-z]+\.[a-zA-Z]+', message.text)) > 0:
         email = re.findall(r'[A-Za-z\d._-]+@[A-Za-z]+\.[a-zA-Z]+', message.text)[0]
@@ -42,6 +46,11 @@ async def bot_function_contact_email(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=state_m.Contact_information.contact_chose)
 async def bot_function_contact(message: types.Message, state: FSMContext):
+    if message.text == keyboards.Btn_text_menu.MENU:
+        await message.answer(keyboards.Btn_text_menu.MENU.value,
+                             reply_markup=keyboards.Btn_main_menu.list_btn)
+        await state.finish()
+
     if message.text == 'Так':
 
         async with state.proxy() as data:
