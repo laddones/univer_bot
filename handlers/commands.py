@@ -26,3 +26,5 @@ async def command_start(message: types.Message, state: FSMContext):
     )
     await api_storage_module.create_client(client)
     await message.answer(enums.TextEnum.START.format(first_name=message.from_user.first_name), reply_markup=keyboards.Btn_main_menu.list_btn, parse_mode=ParseMode.HTML)
+    await state.finish()
+    

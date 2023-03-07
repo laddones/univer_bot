@@ -11,6 +11,11 @@ from modules.models.schema import UpdateClientSchema
 
 @dp.message_handler(content_types=types.ContentType.CONTACT, state=state_m.Contact_information.contact_phone_number)
 async def bot_function_phone(message: types.Message, state: FSMContext):
+    if message.text == keyboards.Btn_text_menu.MENU:
+        await message.answer(keyboards.Btn_text_menu.MENU.value,
+                             reply_markup=keyboards.Btn_main_menu.list_btn)
+        await state.finish()
+
     if message.contact.user_id != message.from_user.id:
         await message.answer("Неправильний номер. Натисніть на кнопку відправки номеру.")
         return
