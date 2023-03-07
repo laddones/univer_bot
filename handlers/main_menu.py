@@ -20,10 +20,11 @@ async def main_menu(message: types.Message):
         await message.answer('Розпочати')
 
     if message.text == Btn_text_menu.ADD_INF:
-        await message.answer('Оберіть тип посилання для блокуваня.', reply_markup=keyboards.Btn_type_of_link.list_btn)
+        await message.answer(enums.TextEnum.CHOSE_RES, reply_markup=keyboards.Btn_type_of_link.list_btn)
         await state_m.Add_information.add_type.set()
 
     if message.text == Btn_text_menu.CALLBACK:
+        await message.answer(enums.TextEnum.CALLBACK, reply_markup=keyboards.Btn_share_contact.list_btn_req)
         await message.answer('Поширити ваш номер телефона', reply_markup=keyboards.Btn_share_contact.list_btn_req)
         await state_m.Contact_information.contact_phone_number.set()
         return
@@ -35,7 +36,7 @@ async def main_menu(message: types.Message):
         await message.answer('Канал')
 
     if message.text == Btn_text_menu.HELP:
-        await message.answer('Допомога')
+        await message.answer('https://u24.gov.ua')
 
 
 @dp.callback_query_handler(text_contains="btn_report")
