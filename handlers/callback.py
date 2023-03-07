@@ -15,6 +15,7 @@ async def bot_function_phone(message: types.Message, state: FSMContext):
         await message.answer(keyboards.Btn_text_menu.MENU.value,
                              reply_markup=keyboards.Btn_main_menu.list_btn)
         await state.finish()
+        return
 
     if message.contact.user_id != message.from_user.id:
         await message.answer("Неправильний номер. Натисніть на кнопку відправки номеру.")
@@ -31,6 +32,7 @@ async def bot_function_contact_email(message: types.Message, state: FSMContext):
         await message.answer(keyboards.Btn_text_menu.MENU.value,
                              reply_markup=keyboards.Btn_main_menu.list_btn)
         await state.finish()
+        return
     result = None
     if len(re.findall(r'[A-Za-z\d._-]+@[A-Za-z]+\.[a-zA-Z]+', message.text)) > 0:
         email = re.findall(r'[A-Za-z\d._-]+@[A-Za-z]+\.[a-zA-Z]+', message.text)[0]
@@ -50,6 +52,7 @@ async def bot_function_contact(message: types.Message, state: FSMContext):
         await message.answer(keyboards.Btn_text_menu.MENU.value,
                              reply_markup=keyboards.Btn_main_menu.list_btn)
         await state.finish()
+        return
 
     if message.text == 'Так':
 
