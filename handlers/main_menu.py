@@ -7,7 +7,6 @@ from handlers.start_blocking import send_new_report_api
 from keyboard import keyboards
 from keyboard.keyboards import Btn_text_menu
 from modules.models.schema import LinkClientStatus, CreateLinkClientSchema
-from modules.models.text_enum import Texts
 from modules.text_manage_module import enums
 
 
@@ -57,7 +56,6 @@ async def report_sender(call: types.CallbackQuery):
             link_status=link_action
         )
     )
-    print(response)
     await bot.delete_message(call.from_user.id, call.message.message_id)
     new_link = await api_storage_module.get_link(call.from_user.id)
     if new_link:

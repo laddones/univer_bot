@@ -90,7 +90,6 @@ class ApiStorage:
 
     async def update_link(self, schema: CreateLinkClientSchema) -> LinkClientSchema:
         url = self.api_host + MethodEnum.LINKS_CLIENT
-        print(url)
         try:
             response_json = await self.__make_request(
                 url,
