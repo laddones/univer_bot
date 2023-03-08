@@ -30,7 +30,7 @@ async def main_menu(message: types.Message):
         return
 
     if message.text == Btn_text_menu.ABOUT:
-        await message.answer('О')
+        await message.answer(enums.TextEnum.ABOUT_US)
 
     if message.text == Btn_text_menu.SEND_MESSAGE:
         await message.answer('Канал')

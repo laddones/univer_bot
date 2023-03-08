@@ -8,7 +8,7 @@ class Btn_text_menu(str, Enum):
     START_BLOCKING = '🚫 Розпочати блокування'
     ADD_INF = '📨 Додати на блокування'
     CALLBACK = '🤙Зворотній зв\'язок📱'
-    ABOUT = '📜Про бота'
+    ABOUT = '📜Про бот'
     SEND_MESSAGE = '👋 Канал'
     HELP = '🆘 Допомога ЗСУ'
     MENU = '🌍 Меню'
