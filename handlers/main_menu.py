@@ -33,7 +33,7 @@ async def main_menu(message: types.Message):
         await message.answer(enums.TextEnum.ABOUT_US)
 
     if message.text == Btn_text_menu.SEND_MESSAGE:
-        await message.answer('Канал')
+        await message.answer(enums.TextEnum.SHARE)
 
     if message.text == Btn_text_menu.HELP:
         await message.answer('https://u24.gov.ua')
